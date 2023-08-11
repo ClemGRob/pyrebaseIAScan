@@ -9,4 +9,4 @@ firebase = pyrebase.initialize_app(config.pirebaseConfig)
 db = firebase.database()
 
 data = {"test": "success"}
-set_data(db,data,"my","position","to","value")
+print(set_data(db,data,"my","position","to","value"))

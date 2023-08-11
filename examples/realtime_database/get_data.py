@@ -9,5 +9,5 @@ firebase = pyrebase.initialize_app(config.pirebaseConfig)
 db = firebase.database()
 
 
-data = get_data(db,"my","position","too","value")
+data = get_data(db,"my","position","to","value")
 print(data)

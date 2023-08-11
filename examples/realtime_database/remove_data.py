@@ -9,4 +9,4 @@ firebase = pyrebase.initialize_app(config.pirebaseConfig)
 db = firebase.database()
 
 
-remove_data(db,"my","position","to","value")
+print(remove_data(db,"my","position","to","value"))
