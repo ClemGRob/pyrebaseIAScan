@@ -2,9 +2,7 @@ name : test on realtime database
 
 on:
   push:
-    - 'tests'
   pull_request:
-    - 'main'
 
 jobs:
   run-tests:
