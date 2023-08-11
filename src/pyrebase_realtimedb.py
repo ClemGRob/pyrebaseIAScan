@@ -16,8 +16,8 @@ def set_data(firebase_database,data:dict, *path):
             current_position = current_position.child(position)
         return current_position.set(data)
     except Exception as e:
-            print("unknown isse, verify your internet connexion"+ str(e))
-            return "unknown isse, verify your internet connexion"+ str(e)
+            print("unknown issue, verify your internet connexion"+ str(e))
+            return "unknown issue, verify your internet connexion"+ str(e)
 
 def remove_data(firebase_database,*path):
     """
@@ -31,8 +31,8 @@ def remove_data(firebase_database,*path):
             current_position = current_position.child(position)
         return current_position.remove()
     except Exception as e:
-        print("unknown isse, verify your internet connexion"+ str(e))
-        return "unknown isse, verify your internet connexion"+ str(e)
+        print("unknown issue, verify your internet connexion"+ str(e))
+        return "unknown issue, verify your internet connexion"+ str(e)
 
 def get_data(firebase_database,*path):
     """_summary_
@@ -59,5 +59,5 @@ def get_data(firebase_database,*path):
         print("Erreur de connexion:"+str(e))
         return "Erreur de connexion:"+str(e)
     except Exception as e:
-        print("unknown isse, verify your internet connexion"+ str(e))
-        return "unknown isse, verify your internet connexion"+ str(e)
+        print("unknown issue, verify your internet connexion"+ str(e))
+        return "unknown issue, verify your internet connexion"+ str(e)

@@ -3,10 +3,6 @@ all function to manipulate the file storage
 can store picture and text file
 """
 
-import pyrebase
-import config.pyrebase_config as pyrebase_config
-
-
 def upload(storage, filename:str, online_filename:str, *path):
     """
     upload a file on firebase storage
@@ -17,10 +13,18 @@ def upload(storage, filename:str, online_filename:str, *path):
         online_filename (str): name of the file you want in the storage
         *path(list[str]): path of the file in the storage
     """
-    current_position = storage
-    for position in path:
-        current_position = current_position.child(position)
-    current_position.child(online_filename).put(filename)
+    try:
+        current_position = storage
+        for position in path:
+            current_position = current_position.child(position)
+        current_position.child(online_filename).put(filename)
+    except FileNotFoundError as e:
+        print("file not found"+ str(e))
+        return "file not found"+ str(e)
+    except Exception as e:
+            print("unknown issue, verify your internet connexion"+ str(e))
+            return "unknown issue, verify your internet connexion"+ str(e)
+
 
 def download(storage, filename:str, online_filename:str, *path):
     """download a file from the firebase storage
@@ -31,10 +35,15 @@ def download(storage, filename:str, online_filename:str, *path):
         online_filename (str): name of the file in the storage
         *path(list[str]): path of the file in the storage
     """
-    current_position = storage
-    for position in path:
-        current_position = current_position.child(position)
-    current_position.child(online_filename).download(filename)
+    try:
+        current_position = storage
+        for position in path:
+            current_position = current_position.child(position)
+        current_position.child(online_filename).download(filename)
+    except Exception as e:
+            print("unknown issue, verify your internet connexion"+ str(e))
+            return "unknown issue, verify your internet connexion"+ str(e)
+
 
 def remove(storage, online_filename:str, *path):
     """
@@ -46,7 +55,12 @@ def remove(storage, online_filename:str, *path):
         online_filename (str): name of the file in the storage
         *path(list[str]): path of the file in the storage
     """
-    current_position = storage
-    for position in path:
-        current_position = current_position.child(position)
-    current_position.delete(online_filename)
+    try:
+        current_position = storage
+        for position in path:
+            current_position = current_position.child(position)
+        current_position.delete(online_filename)
+    except Exception as e:
+        print("unknown issue, verify your internet connexion"+ str(e))
+        return "unknown issue, verify your internet connexion"+ str(e)
+
