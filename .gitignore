@@ -1,1 +1,4 @@
 .venv
+config/__pycache__/__init__.cpython-38.pyc
+src/__pycache__/pyrebase_realtimedb_test.cpython-38.pyc
+src/__pycache__/wrapper.cpython-38.pyc
