@@ -1,18 +1,19 @@
 import pyrebase
 
+
+
+
 def set_data(firebase_database,data, *path):
     current_position = firebase_database
     for position in path:
         current_position = current_position.child(position)
     current_position.set(data)
 
-
 def remove_data(firebase_database,*path):
     current_position = firebase_database
     for position in path:
         current_position = current_position.child(position)
     current_position.remove()
-
 
 def get_data(firebase_database,*path):
     current_position = firebase_database
