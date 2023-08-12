@@ -28,8 +28,8 @@ def login(firebase_database,email, passwd):
     return pyrebase_auth.login(firebase_database,email, passwd)
 
 
-def upload(storage, filename, online_filename, *path):
-    return pyrebase_file_storage.upload(storage, filename, online_filename, *path)
+def upload(storage, filename, online_filename, user= None,*path):
+    return pyrebase_file_storage.upload(storage, filename, online_filename, user,*path)
 
 def download(storage, filename, online_filename, *path):
     return pyrebase_file_storage.download(storage, filename, online_filename, *path)
