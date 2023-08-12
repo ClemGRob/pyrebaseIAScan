@@ -3,7 +3,7 @@ all function to manipulate the file storage
 can store picture and text file
 """
 
-def upload(storage, filename:str, online_filename:str, *path):
+def upload(storage, filename:str, online_filename:str,user = None, *path):
     """
     upload a file on firebase storage
 
@@ -17,7 +17,9 @@ def upload(storage, filename:str, online_filename:str, *path):
         current_position = storage
         for position in path:
             current_position = current_position.child(position)
-        current_position.child(online_filename).put(filename)
+        if user == None:
+            return current_position.child(online_filename).put(filename)
+        return current_position.child(online_filename).put(filename, user['idToken'])
     except FileNotFoundError as e:
         print("file not found"+ str(e))
         return "file not found"+ str(e)
@@ -26,7 +28,7 @@ def upload(storage, filename:str, online_filename:str, *path):
             return "unknown issue, verify your internet connexion"+ str(e)
 
 
-def download(storage, filename:str, online_filename:str, *path):
+def download(storage, filename:str, online_filename:str,user = None, *path):
     """download a file from the firebase storage
 
     Args:
@@ -39,7 +41,13 @@ def download(storage, filename:str, online_filename:str, *path):
         current_position = storage
         for position in path:
             current_position = current_position.child(position)
-        current_position.child(online_filename).download(filename)
+        if user == None:
+            return current_position.child(online_filename).download(filename)
+        print("aaaa")
+        return current_position.child(online_filename).download(filename, user['idToken'])
+    except FileNotFoundError as e:
+        print("file not found"+ str(e))
+        return "file not found"+ str(e)
     except Exception as e:
             print("unknown issue, verify your internet connexion"+ str(e))
             return "unknown issue, verify your internet connexion"+ str(e)

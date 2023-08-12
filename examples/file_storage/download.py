@@ -1,9 +1,3 @@
-"""
-
-
-"""
-
-
 
 import sys
 import os
@@ -18,4 +12,4 @@ storage = firebase.storage()
 file = "img.jpg"
 online_file = "img.jpg"
 
-download(storage, "test_"+file, file,"file")
+print(download(storage, "test_"+file, file,None))

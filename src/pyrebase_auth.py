@@ -11,13 +11,13 @@ def create_auth():
 def signup(auth,email, passwd):
     try:
         user = auth.create_user_with_email_and_password(email, passwd)
-    except:
-        print(err.EMAIL_ALREADY_EXISTE)
+    except Exception as e:
+        print(err.EMAIL_ALREADY_EXISTE+"  "+str(e))
 
 def login(auth,email, passwd):
     try:
-        user = auth.sign_in_with_email_and_password(email, passwd)
-    except:
-        print(err.WRONG_EMAIL)
+        return auth.sign_in_with_email_and_password(email, passwd)
+    except Exception as e:
+        print(err.EMAIL_ALREADY_EXISTE+"  "+str(e))
+        return e
 
-# login("teofgsta@test.com", "fazzkepwd")
