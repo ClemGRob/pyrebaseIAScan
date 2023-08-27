@@ -12,6 +12,6 @@ file = "img.jpg"
 online_file = "img.jpg"
 
 auth=firebase.auth()
-user=login(auth, "test@tttttt.com","password")
+user=login(auth, "password@password.password","password")
 
 print(download(storage, file, online_file,user))
