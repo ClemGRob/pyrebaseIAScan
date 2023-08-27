@@ -1,4 +1,3 @@
-
 import sys
 import os
 import pyrebase
@@ -8,8 +7,6 @@ import config
 
 
 firebase = pyrebase.initialize_app(config.pirebaseConfig)
-storage = firebase.storage()
-file = "test.txt"
-online_file = "montest.txt"
-
-print(download(storage, "test_"+file, file,None))
+auth=firebase.auth()
+# user=signup(auth, "password2@password.password2","password")
+user=signup(auth, "clementguellec@gmail.com","password")
