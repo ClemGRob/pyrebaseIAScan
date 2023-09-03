@@ -52,9 +52,6 @@ def get_data(firebase_database,*path):
         for only_data in pyrebase_data.each():
             data[only_data.key()]=only_data.val()
         return data
-    except TypeError as e:
-        print("no data to remove : "+str(e))
-        return "no data to remove : "+str(e)
     except ConnectionError as e:
         print("Erreur de connexion:"+str(e))
         return "Erreur de connexion:"+str(e)
