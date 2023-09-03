@@ -8,6 +8,8 @@ import config
 
 firebase = pyrebase.initialize_app(config.pirebaseConfig)
 storage = firebase.storage()
-file = "img.jpg"
+
+
+file = "test.txt"
 online_file = "img.jpg"
-remove(storage, file,"file")
+remove(storage, file,"file","image","personneA")
