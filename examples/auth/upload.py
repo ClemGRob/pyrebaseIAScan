@@ -14,6 +14,8 @@ file = "test.txt"
 online_file = "test.txt"
 
 auth=firebase.auth()
-
 user=login(auth, "password@password.password","password")
-upload(storage, file, online_file,user,"fileururu")
+
+
+
+upload(storage, file, online_file, user,"file","image","personneA")

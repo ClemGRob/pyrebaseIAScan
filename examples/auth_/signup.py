@@ -9,4 +9,4 @@ import config
 firebase = pyrebase.initialize_app(config.pirebaseConfig)
 auth=firebase.auth()
 # user=signup(auth, "password2@password.password2","password")
-user=signup(auth, "clementguellec@gmail.com","password")
+user=signup(auth, "clementguellec","password")
