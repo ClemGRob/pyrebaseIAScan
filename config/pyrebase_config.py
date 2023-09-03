@@ -20,5 +20,7 @@ pirebaseConfig ={
   "measurementId": "G-JH68RF6DQ0"
   # "serviceAccount": "/home/clem/pyrebaseIAScan/config/google-services.json"
 }
+API_KEY = 'AAAA1tVrxG8:APA91bHDrzJTO1faGyz7Gs2ANsSQBrZHCDLWMGnqMEUt4uJ18-7Z4ohWBooiGJnvQcxUZ4WXRjcNtbo_ImpeJG0WmmZ9YitHkoX4OFQYq1itXt8OOncF-oKX0L30wUOkNs4lC_lEd3HL'
+
 
 # https://user-5a95c-default-rtdb.europe-west1.firebasedatabase.app/

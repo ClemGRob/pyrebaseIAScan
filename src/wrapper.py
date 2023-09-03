@@ -7,7 +7,7 @@ sys.path.insert(0, current_path_wrapper)
 import pyrebase_realtimedb
 import pyrebase_auth
 import pyrebase_file_storage
-
+import pyrebase_message
 
 
 def set_data(firebase_database,data, *path):
@@ -38,3 +38,8 @@ def download(storage, filename, online_filename, user= None, *path):
 
 def remove(storage, online_filename, *path):
     return pyrebase_file_storage.remove(storage, online_filename, *path)
+
+
+
+def send_message(API_KEY, DEVICE_TOKEN,message_title,message_body,data_message):
+    return pyrebase_message.send_message(API_KEY, DEVICE_TOKEN,message_title,message_body,data_message)
