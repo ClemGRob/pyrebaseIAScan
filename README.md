@@ -13,8 +13,10 @@ on linux :
     source .venv/bin/activate
 on windows : 
     activate .venv/bin/activate
-
-pip install -r requirement.txt
+pip install --upgrade pip wheel setuptools requests
+pip install -r requirements.txt
+pip uninstall pycryptodome -y
+pip install -U pycryptodome
 
 # configuraton
 get your project config and put it inside config/Pyrebase_config.py (replace pirebaseConfig variable content with yours)

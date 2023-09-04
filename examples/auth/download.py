@@ -8,8 +8,9 @@ import config
 
 firebase = pyrebase.initialize_app(config.pirebaseConfig)
 storage = firebase.storage()
-file = "img.jpg"
-online_file = "img.jpg"
+file = "file.txt"
+# the file must be at the root of the project
+online_file = "file.txt"
 
 auth=firebase.auth()
 user=login(auth, "password@password.password","password")

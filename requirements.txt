@@ -1,2 +1,4 @@
 Flask
 pyrebase
+urllib3
+pyfcm

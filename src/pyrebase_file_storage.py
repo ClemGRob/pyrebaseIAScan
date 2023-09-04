@@ -43,7 +43,6 @@ def download(storage, filename:str, online_filename:str,user = None, *path):
             current_position = current_position.child(position)
         if user == None:
             return current_position.child(online_filename).download(filename)
-        print("aaaa")
         return current_position.child(online_filename).download(filename, user['idToken'])
     except FileNotFoundError as e:
         print("file not found"+ str(e))
