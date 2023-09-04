@@ -11,6 +11,7 @@ def upload(storage, filename:str, online_filename:str,user = None, *path):
         storage (pyrebase.storage): pyrebase storage object type, enable to interact with the pyrebase storage
         filename (str): name of the file you want to upload, position is file root, or the file path must be in the variable
         online_filename (str): name of the file you want in the storage
+        user (dict) : contains the informations of the user
         *path(list[str]): path of the file in the storage
     """
     try:
@@ -35,6 +36,7 @@ def download(storage, filename:str, online_filename:str,user = None, *path):
         storage (pyrebase.storage): pyrebase storage object type, enable to interact with the pyrebase storage
         filename (str): name of the file you want to download, position is file root, or the file path must be in the variable
         online_filename (str): name of the file in the storage
+        user (dict) : contains the informations of the user
         *path(list[str]): path of the file in the storage
     """
     try:
@@ -43,7 +45,6 @@ def download(storage, filename:str, online_filename:str,user = None, *path):
             current_position = current_position.child(position)
         if user == None:
             return current_position.child(online_filename).download(filename)
-        print("aaaa")
         return current_position.child(online_filename).download(filename, user['idToken'])
     except FileNotFoundError as e:
         print("file not found"+ str(e))
@@ -64,10 +65,7 @@ def remove(storage, online_filename:str, *path):
         *path(list[str]): path of the file in the storage
     """
     try:
-        current_position = storage
-        for position in path:
-            current_position = current_position.child(position)
-        current_position.delete(online_filename)
+        return storage.delete("/".join(path)+"/"+online_filename)
     except Exception as e:
         print("unknown issue, verify your internet connexion"+ str(e))
         return "unknown issue, verify your internet connexion"+ str(e)
